@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titulo %}{{livro.titulo}}{% endblock %}
+
+{% block conteudo %}
+<div>
+    <h1>{{livro.titulo}}</h1>
+    <p>autor:{{livro.autor}}</p>
+    <p>ano: {{livro.ano}}</p>
+    <p>gênero: {{livro.genero}}</p>
+</div>
+
+<h1>resenhas:</h1>
+{% if resenhas %}
+    {% for r in resenhas %}
+    <div>
+        <p>{{r.usuario}}, nota: {{r.nota}}</p>
+        <p>{{r.texto}}</p>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>sem resenhas</p>
+{% endif %}
+{% endblock %}
